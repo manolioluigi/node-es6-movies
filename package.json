@@ -1,0 +1,23 @@
+{
+  "name": "es6-movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manolioluigi/node-es6-movies.git"
+  },
+  "author": "Luigi Manolio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manolioluigi/node-es6-movies/issues"
+  },
+  "homepage": "https://github.com/manolioluigi/node-es6-movies#readme",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
