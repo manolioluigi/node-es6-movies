@@ -98,6 +98,7 @@ class Movie {
     toString() {
         return `${this.title} è un film di genere ${this.genre}. È stato rilasciato nel ${this.year} ed ha un voto di ${this.rating}`;
     }
+
 }
 
 class TvSeries extends Movie {
@@ -122,22 +123,26 @@ let nuovoCatalogo = catalogo.map(item => {
 
 //funzioni
 
+//Media film per genere
 function mediaRating(lista, genere) {
 
     let somma = 0;
     let filmFiltrati = 0;
 
     catalogo.forEach(item => {
-        if (item.genre == genere) {
-            filmFiltrati++;
-            somma = somma + Number(item.rating);
-            //console.log(somma)
+        if (item.type == "movie") {
+            if (item.genre == genere) {
+                filmFiltrati++;
+                somma = somma + Number(item.rating);
+                //console.log(somma)
+            }
         }
     });
 
     console.log("La media dei voti dei film nel genere " + genere + " è: " + somma / filmFiltrati);
 }
 
+//Lista generi non ripetuti
 function listaGeneri() {
     let generi = [];
     catalogo.forEach(item => {
@@ -150,17 +155,35 @@ function listaGeneri() {
     console.log(generi);
 }
 
+//Filtro film per genere
+function filtroFilm(genere) {
+    let elencoFiltrato = [];
+
+    nuovoCatalogo.forEach(item => {
+        if (item.type == "movie") {
+            if (item.genre == genere) {
+                elencoFiltrato.push(item.toString());
+            }
+        }
+    });
+
+    return console.log(elencoFiltrato);
+}
 
 
 //console log
 
+//Elenco completo film con toString()
 for (let item of nuovoCatalogo) {
     console.log(item.toString());
 }
 
 
-
+//Media per genere
 mediaRating(catalogo, "Drammatico");
 
+//Lista generi
 listaGeneri();
 
+//Film filtrati per genere
+filtroFilm("Drammatico");
